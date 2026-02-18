@@ -67,4 +67,4 @@ Example entries:
 
 ## License
 
-MIT
+MIT License – See [LICENSE](LICENSE) file
