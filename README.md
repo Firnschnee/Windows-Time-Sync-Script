@@ -2,6 +2,31 @@
 
 A lightweight Windows batch script that automatically syncs the system clock once an internet connection is available.
 
+## Background
+
+My problem was that `w32tm` was uninstalled, most likely due to some hardening scripts.
+Symptoms were clock drift and 2FA failures, because the time was not correct anymore.
+
+I checked with
+
+```
+w32tm /query /status
+```
+
+and got
+
+```
+C:\Users\Firnschnee>w32tm /query /status
+Folgender Fehler ist aufgetreten: Der Dienst wurde nicht gestartet. (0x80070426)
+C:\Users\Firnschnee>sc query w32tm
+[SC] EnumQueryServicesStatus:OpenService FEHLER 1060:
+Der angegebene Dienst ist kein installierter Dienst.
+```
+
+*-> The service has not been started & the service is not installed*
+
+Fix: this script.
+
 ## What it does
 
 1. Continuously pings `8.8.8.8` until an internet connection is detected
