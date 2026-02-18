@@ -25,7 +25,9 @@ Der angegebene Dienst ist kein installierter Dienst.
 
 *-> The service has not been started & the service is not installed*
 
-Fix: this script.
+```sc start w32tm```
+
+and then the fix: this script.
 
 ## What it does
 
